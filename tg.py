@@ -30,7 +30,7 @@ async def telegram(data):
         url = urls[0]
         dat = await create_url(url)
         short_url = dat['id']
-        text = f"✔️ Successfully created\nMain Links: `{url}`\nShotrend Link :\n`{short_url}`\nCreate your own Url Website"
+        text = f"✔️ Successfully created\nMain Links: `{url}`\nShotrend Link :\n`{url}o/{short_url}`\nCreate your own Url Website"
         params = {"chat_id": data['message']['chat']['id'],"text": text,"parse_mode":"markdown","reply_markup":json.dumps(start_inline)}
         httpx.get(f"https://api.telegram.org/bot{token}/sendMessage",params=params)
     else:
